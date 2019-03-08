@@ -56,12 +56,17 @@
             <groupId>com.vcops</groupId>
             <artifactId>common</artifactId>
             <version>1.0</version>
+            <systemPath>${basedir}/local-dependencies/vcops-common.jar</systemPath>
+            <scope>system</scope>
         </dependency>
 
         <dependency>
             <groupId>com.vcops</groupId>
             <artifactId>FusionDirectorAdapter</artifactId>
             <version>1.0</version>
+            <systemPath>${basedir}/local-dependencies/FusionDirectorAdapter.jar</systemPath>
+            <scope>system</scope>
+
         </dependency>
 
     </dependencies>
@@ -127,6 +132,7 @@
                     </archive>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
