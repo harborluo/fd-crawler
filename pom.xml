@@ -68,6 +68,7 @@
 
     <build>
         <plugins>
+<!--		
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-install-plugin</artifactId>
@@ -81,7 +82,7 @@
                 </configuration>
                 <executions>
                     <execution>
-                        <id>install-jar-lib</id>
+                        <id>install-jar-vcops-common</id>
                         <goals>
                             <goal>install-file</goal>
                         </goals>
@@ -89,29 +90,51 @@
                     </execution>
                 </executions>
             </plugin>
+-->
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-install-plugin</artifactId>
-                <configuration>
-                    <groupId>com.vcops</groupId>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-install-plugin</artifactId>
+		
+          <version>2.4</version>
+		  <inherited>false</inherited>
+		  
+          <executions>
+            <execution>
+              <id>install-vcops-common</id>
+              <phase>validate</phase>
+              <goals>
+                <goal>install-file</goal>
+              </goals>
+              <configuration>
+                <groupId>com.vcops</groupId>
+                    <artifactId>common</artifactId>
+                    <version>1.0</version>
+                    <packaging>jar</packaging>
+                    <file>${basedir}/local-dependencies/vcops-common.jar</file>
+					<generatePom>true</generatePom>
+              </configuration>
+            </execution>
+            
+			<execution>
+              <id>install-FusionDirectorAdapter</id>
+              <phase>validate</phase>
+              <goals>
+                <goal>install-file</goal>
+              </goals>
+              <configuration>
+                <groupId>com.vcops</groupId>
                     <artifactId>FusionDirectorAdapter</artifactId>
                     <version>1.0</version>
                     <packaging>jar</packaging>
                     <file>${basedir}/local-dependencies/FusionDirectorAdapter.jar</file>
-                    <generatePom>true</generatePom>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>install-jar-lib</id>
-                        <goals>
-                            <goal>install-file</goal>
-                        </goals>
-                        <phase>validate</phase>
-                    </execution>
-                </executions>
-            </plugin>
+					<generatePom>true</generatePom>
+              </configuration>
 
+            </execution>
+			
+          </executions>
+        </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
