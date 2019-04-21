@@ -463,7 +463,7 @@ public class CrawlerApplication {
                 switchNodeApiWrapper.setPathVarivable(entity.getDeviceID());
                 try {
 
-                    String jsonString = wrapper.call(String.class);
+                    String jsonString = switchNodeApiWrapper.call(String.class);
                     saveJsonFile(jsonDir+"switch-nodes/", "switch-node-"+entity.getDeviceID()+".json", jsonString);
 
 //                    SwitchNodeBean switchNodeBean = switchNodeApiWrapper.call(SwitchNodeBean.class);
